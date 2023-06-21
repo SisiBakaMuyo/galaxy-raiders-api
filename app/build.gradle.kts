@@ -59,6 +59,9 @@ dependencies {
   implementation("com.fasterxml.jackson.core:jackson-databind:2.13.3")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
 
+  // Use the Kotlin JSON parser
+  implementation("com.beust:klaxon:5.5")
+
   // Use the Kotlin JUnit 5 integration.
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.6.21")
 
@@ -93,7 +96,7 @@ tasks.test {
 
 // Require tests to run before generating the Jacoco test coverage report.
 tasks.jacocoTestReport {
-    dependsOn(tasks.test)
+  dependsOn(tasks.test)
 }
 
 // Configure the metadata to generate an uber JAR.
