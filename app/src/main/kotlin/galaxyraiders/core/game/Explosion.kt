@@ -19,5 +19,4 @@ class Explosion(initialPosition: Point2D, radius: Double, timeLive: Double) :
     }
     this.timeLeft -= 1.0
   }
-
 }

@@ -29,5 +29,4 @@ class ExplosionTest {
   fun `it is triggered upon creation`() {
     assertTrue(explosion.isTriggered)
   }
-
 }
