@@ -29,4 +29,46 @@ class ExplosionTest {
   fun `it is triggered upon creation`() {
     assertTrue(explosion.isTriggered)
   }
+
+  @Test
+  fun `its radius is set correctly`() {
+    assertEquals(1.0, explosion.radius)
+  }
+
+  @Test
+  fun `its radius can be updated to a new value`() {
+    val newRadius = 2.5
+    explosion.radius = newRadius
+    assertEquals(newRadius, explosion.radius)
+  }
+
+  @Test
+  fun `updating the radius does not modify the original value`() {
+    val originalRadius = explosion.radius
+    val newRadius = 2.5
+    explosion.radius = newRadius
+    assertEquals(originalRadius, explosion.radius)
+  }
+
+
+
+  @Test
+  fun `ensuring the explosion is symmetrical`() {
+    val x1 = explosion.center.x + explosion.radius
+    val x2 = explosion.center.x - explosion.radius
+    val y1 = explosion.center.y + explosion.radius
+    val y2 = explosion.center.y - explosion.radius
+
+    assertAll(
+      "Explosion should be symmetrical",
+      { assertEquals(x1, explosion.calculateSymmetricalPointX(x2), 1e-6) },
+      { assertEquals(y1, explosion.calculateSymmetricalPointY(y2), 1e-6) }
+    )
+    }
 }
+
+
+
+
+
+

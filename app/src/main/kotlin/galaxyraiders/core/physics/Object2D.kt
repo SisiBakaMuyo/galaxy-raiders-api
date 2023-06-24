@@ -3,7 +3,7 @@ package galaxyraiders.core.physics
 open class Object2D(
   initialPosition: Point2D,
   initialVelocity: Vector2D,
-  val radius: Double,
+  var radius: Double,
   val mass: Double
 ) {
   var center: Point2D = initialPosition
